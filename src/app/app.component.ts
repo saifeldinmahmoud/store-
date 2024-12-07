@@ -40,7 +40,18 @@ export class PaypalModule {}
   selector: 'app-root',
   standalone: true,
   imports: [
- 
+    // FilterComponent,
+    HeaderComponent,
+    // HomeComponent,
+    // CartComponent,
+    RouterModule,
+
+// TODO: `HttpClientModule` should not be imported into a component directly.
+// Please refactor the code to add `provideHttpClient()` call to the provider list in the
+// application bootstrap logic and remove the `HttpClientModule` import from this component.
+HttpClientModule,
+    ReactiveFormsModule,
+    NgxPaginationModule,
 
 ],
   providers: [CartService, StoreService],
