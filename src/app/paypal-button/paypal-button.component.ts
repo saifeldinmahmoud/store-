@@ -12,9 +12,10 @@ interface PaymentDetails {
 }
 
 @Component({
-  selector: 'app-paypal-button',
-  templateUrl: './paypal-button.component.html',
-  styleUrls: ['./paypal-button.component.css'],
+    selector: 'app-paypal-button',
+    templateUrl: './paypal-button.component.html',
+    styleUrls: ['./paypal-button.component.css'],
+    standalone: false
 })
 export class PaypalButtonComponent implements AfterViewInit {
   constructor() {}

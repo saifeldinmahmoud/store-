@@ -24,30 +24,28 @@ import { loadStripe } from '@stripe/stripe-js';
 import { NgxPayPalModule } from 'ngx-paypal';
 
 @Component({
-  selector: 'app-cart',
-  standalone: true,
-  imports: [
-    MatGridListModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatCardModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatListModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatBadgeModule,
-    MatSnackBarModule,
-    CommonModule,
-    RouterModule,
-    CurrencyPipe,
-    NgxPayPalModule,
-
-  ],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css',
+    selector: 'app-cart',
+    imports: [
+        MatGridListModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatIconModule,
+        MatExpansionModule,
+        MatListModule,
+        MatToolbarModule,
+        MatTableModule,
+        MatBadgeModule,
+        MatSnackBarModule,
+        CommonModule,
+        RouterModule,
+        CurrencyPipe,
+        NgxPayPalModule,
+    ],
+    templateUrl: './cart.component.html',
+    styleUrl: './cart.component.css'
 })
 export class CartComponent implements OnInit {
   cart: cart = {

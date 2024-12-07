@@ -12,25 +12,24 @@ import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 @Component({
-  selector: 'app-proudcts-header',
-  standalone: true,
-  imports: [
-    MatGridListModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatCardModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatListModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatBadgeModule,
-    MatSnackBarModule,
-  ],
-  templateUrl: './proudcts-header.component.html',
-  styleUrl: './proudcts-header.component.css',
+    selector: 'app-proudcts-header',
+    imports: [
+        MatGridListModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatIconModule,
+        MatExpansionModule,
+        MatListModule,
+        MatToolbarModule,
+        MatTableModule,
+        MatBadgeModule,
+        MatSnackBarModule,
+    ],
+    templateUrl: './proudcts-header.component.html',
+    styleUrl: './proudcts-header.component.css'
 })
 export class ProudctsHeaderComponent implements OnInit {
   @Output() columesoutchanges = new EventEmitter<number>();

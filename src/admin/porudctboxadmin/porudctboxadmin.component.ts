@@ -28,28 +28,27 @@ import { HttpClient } from '@angular/common/http';
 import { CartService } from '../../app/sevices/cart.service';
 import { StoreService } from '../../app/sevices/store.service';
 @Component({
-  selector: 'app-porudctboxadmin',
-  standalone: true,
-  imports: [
-    MatGridListModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatCardModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatListModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatBadgeModule,
-    MatSnackBarModule,
-    CommonModule,
-    CurrencyPipe,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './porudctboxadmin.component.html',
-  styleUrl: './porudctboxadmin.component.css',
+    selector: 'app-porudctboxadmin',
+    imports: [
+        MatGridListModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatIconModule,
+        MatExpansionModule,
+        MatListModule,
+        MatToolbarModule,
+        MatTableModule,
+        MatBadgeModule,
+        MatSnackBarModule,
+        CommonModule,
+        CurrencyPipe,
+        ReactiveFormsModule,
+    ],
+    templateUrl: './porudctboxadmin.component.html',
+    styleUrl: './porudctboxadmin.component.css'
 })
 export class PorudctboxadminComponent implements OnInit {
   @Input() fullwidthmode = false;

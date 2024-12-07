@@ -22,29 +22,27 @@ import { ProudctBoxComponent } from "../../../../app/pages/home/proudct-box/prou
 const ROWS_HEIGHT: { [id: number]: number } = { 1: 400, 3: 335, 4: 350 };
 
 @Component({
-  selector: 'app-proudct',
-  standalone: true,
-  imports: [
-    MatGridListModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatCardModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatListModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatBadgeModule,
-    MatSnackBarModule,
-    CommonModule,
-
-    ProudctsHeaderComponent,
-    ProudctBoxComponent,
-  ],
-  templateUrl: './proudct.component.html',
-  styleUrl: './proudct.component.css',
+    selector: 'app-proudct',
+    imports: [
+        MatGridListModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatIconModule,
+        MatExpansionModule,
+        MatListModule,
+        MatToolbarModule,
+        MatTableModule,
+        MatBadgeModule,
+        MatSnackBarModule,
+        CommonModule,
+        ProudctsHeaderComponent,
+        ProudctBoxComponent,
+    ],
+    templateUrl: './proudct.component.html',
+    styleUrl: './proudct.component.css'
 })
 
 export class ProudctComponent implements OnInit, OnDestroy {

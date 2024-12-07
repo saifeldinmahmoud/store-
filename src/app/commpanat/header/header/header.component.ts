@@ -17,27 +17,26 @@ import { RouterModule } from '@angular/router';
 import { cart, cartitem } from './modeles/cart.model';
 import { CartService } from '../../../sevices/cart.service';
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [
-    MatGridListModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatCardModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatListModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatBadgeModule,
-    MatSnackBarModule,
-    CurrencyPipe,
-    RouterModule,
-    CommonModule,
-  ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+    selector: 'app-header',
+    imports: [
+        MatGridListModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatIconModule,
+        MatExpansionModule,
+        MatListModule,
+        MatToolbarModule,
+        MatTableModule,
+        MatBadgeModule,
+        MatSnackBarModule,
+        CurrencyPipe,
+        RouterModule,
+        CommonModule,
+    ],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   private _cart: cart = { items: [] };

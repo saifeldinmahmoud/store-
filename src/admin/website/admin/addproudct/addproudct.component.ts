@@ -33,30 +33,28 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 const ROWS_HEIGHT: { [id: number]: number } = { 1: 400, 3: 335, 4: 350 };
 
 @Component({
-  selector: 'app-addproudct',
-  standalone: true,
-  imports: [
-    MatGridListModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatCardModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatListModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatBadgeModule,
-    MatSnackBarModule,
-    CommonModule,
-    ProudctsHeaderComponent,
-    ReactiveFormsModule,
-
-    ProudctBoxComponent,
-  ],
-  templateUrl: './addproudct.component.html',
-  styleUrl: './addproudct.component.css',
+    selector: 'app-addproudct',
+    imports: [
+        MatGridListModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatIconModule,
+        MatExpansionModule,
+        MatListModule,
+        MatToolbarModule,
+        MatTableModule,
+        MatBadgeModule,
+        MatSnackBarModule,
+        CommonModule,
+        ProudctsHeaderComponent,
+        ReactiveFormsModule,
+        ProudctBoxComponent,
+    ],
+    templateUrl: './addproudct.component.html',
+    styleUrl: './addproudct.component.css'
 })
 export class AddproudctComponent implements OnInit, OnDestroy {
   category: string | undefined;

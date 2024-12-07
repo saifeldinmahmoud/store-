@@ -7,11 +7,10 @@ import { CurrencyPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-zar-list',
-  standalone: true,
-  imports: [CommonModule, FormsModule, CurrencyPipe, MatIconModule],
-  templateUrl: './zar-list.component.html',
-  styleUrls: ['./zar-list.component.css'],
+    selector: 'app-zar-list',
+    imports: [CommonModule, FormsModule, CurrencyPipe, MatIconModule],
+    templateUrl: './zar-list.component.html',
+    styleUrls: ['./zar-list.component.css']
 })
 export class ZarListComponent  {
   name: string = '';

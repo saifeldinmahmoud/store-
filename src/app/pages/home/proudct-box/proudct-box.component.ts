@@ -16,27 +16,26 @@ import { CommonModule } from '@angular/common';
 import { CurrencyPipe } from '@angular/common';
 import { proudct } from '../../../commpanat/header/header/modeles/proudct.model';
 @Component({
-  selector: 'app-proudct-box',
-  standalone: true,
-  imports: [
-    MatGridListModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatCardModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatListModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatBadgeModule,
-    MatSnackBarModule,
-    CommonModule,
-    CurrencyPipe,
-  ],
-  templateUrl: './proudct-box.component.html',
-  styleUrl: './proudct-box.component.css',
+    selector: 'app-proudct-box',
+    imports: [
+        MatGridListModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatIconModule,
+        MatExpansionModule,
+        MatListModule,
+        MatToolbarModule,
+        MatTableModule,
+        MatBadgeModule,
+        MatSnackBarModule,
+        CommonModule,
+        CurrencyPipe,
+    ],
+    templateUrl: './proudct-box.component.html',
+    styleUrl: './proudct-box.component.css'
 })
 export class ProudctBoxComponent implements OnInit {
   @Input() fullwidthmode = false;

@@ -29,30 +29,28 @@ import { PorudctboxadminComponent } from "../../../porudctboxadmin/porudctboxadm
 const ROWS_HEIGHT: { [id: number]: number } = { 1: 400, 3: 335, 4: 350 };
 
 @Component({
-  selector: 'app-editproudct',
-  standalone: true,
-  imports: [
-    MatGridListModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatCardModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatListModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatBadgeModule,
-    MatSnackBarModule,
-    CommonModule,
-    ProudctsHeaderComponent,
-
-    ReactiveFormsModule,
-    PorudctboxadminComponent
-],
-  templateUrl: './editproudct.component.html',
-  styleUrl: './editproudct.component.css',
+    selector: 'app-editproudct',
+    imports: [
+        MatGridListModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatIconModule,
+        MatExpansionModule,
+        MatListModule,
+        MatToolbarModule,
+        MatTableModule,
+        MatBadgeModule,
+        MatSnackBarModule,
+        CommonModule,
+        ProudctsHeaderComponent,
+        ReactiveFormsModule,
+        PorudctboxadminComponent
+    ],
+    templateUrl: './editproudct.component.html',
+    styleUrl: './editproudct.component.css'
 })
 export class EditproudctComponent {
   @Input() proudct: proudct | undefined;

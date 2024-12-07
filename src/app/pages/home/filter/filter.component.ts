@@ -17,27 +17,26 @@ import { StoreService } from '../../../sevices/store.service';
 import { Subscription } from 'rxjs';
 import { RouterModule } from '@angular/router';
 @Component({
-  selector: 'app-filter',
-  standalone: true,
-  imports: [
-    MatGridListModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatCardModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatListModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatBadgeModule,
-    MatSnackBarModule,
-    CommonModule,
-    RouterModule,
-  ],
-  templateUrl: './filter.component.html',
-  styleUrl: './filter.component.css',
+    selector: 'app-filter',
+    imports: [
+        MatGridListModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatIconModule,
+        MatExpansionModule,
+        MatListModule,
+        MatToolbarModule,
+        MatTableModule,
+        MatBadgeModule,
+        MatSnackBarModule,
+        CommonModule,
+        RouterModule,
+    ],
+    templateUrl: './filter.component.html',
+    styleUrl: './filter.component.css'
 })
 export class FilterComponent implements OnInit, OnDestroy {
   @Output() showcatogery = new EventEmitter<string>();
