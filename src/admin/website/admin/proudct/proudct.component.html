@@ -1,0 +1,27 @@
+<mat-drawer-container
+  [autosize]=" true"
+  class="min-h-full max-w-7x1 mx-auto border-x"
+>
+
+  <mat-drawer-content class="p-6">
+<app-proudcts-header
+(columesoutchanges)="columesoutchanges($event)"
+(itemcountchanges)="onitemcountchange($event)"
+(sortchanges)="onsortchange($event)"
+>
+</app-proudcts-header>
+<mat-grid-list
+gutterSize="16"
+[cols]="cols"
+[rowHeight]="rowHeight"
+>
+<mat-grid-tile *ngFor="let proudct of proudcts">
+  <app-proudct-box
+  [proudct]="proudct"
+(addtocart)="onaddtocart($event)"
+class="w-full"
+[fullwidthmode]="cols===1"></app-proudct-box>
+</mat-grid-tile>
+</mat-grid-list>
+  </mat-drawer-content>
+</mat-drawer-container>

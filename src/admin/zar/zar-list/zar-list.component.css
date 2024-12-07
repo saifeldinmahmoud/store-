@@ -1,0 +1,135 @@
+/* zar-list.component.css */
+
+/* General styling for the page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  /* تمركز المحتوى أفقيًا */
+  align-items: center;
+  /* تمركز المحتوى عموديًا */
+  height: 100vh;
+  /* استخدام الارتفاع الكامل للشاشة */
+  flex-direction: column;
+  /* ترتيب العناصر بشكل عمودي */
+  box-sizing: border-box;
+  /* التأكد من أن جميع الحواف مدرجة ضمن الحجم */
+}
+
+/* Centering the form and list container */
+.zar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  /* تحديد أقصى عرض للنموذج */
+}
+
+/* Container for the form */
+.zar-form {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.zar-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.zar-form label {
+  font-size: 16px;
+  color: #555;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.zar-form input,
+.zar-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.zar-form button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.zar-form button:hover {
+  background-color: #45a049;
+}
+
+/* Styling for the list of zars */
+.zar-list {
+  width: 100%;
+}
+
+.zar-list h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.zar-item {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.zar-item h3 {
+  font-size: 22px;
+  margin: 0;
+  color: #333;
+}
+
+.zar-item p {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.zar-item img {
+  border-radius: 4px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+
+  .zar-form,
+  .zar-list {
+    width: 90%;
+  }
+
+  .zar-form h2,
+  .zar-list h2 {
+    font-size: 22px;
+  }
+
+  .zar-item h3 {
+    font-size: 20px;
+  }
+}

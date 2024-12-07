@@ -1,0 +1,67 @@
+<mat-card
+[ngClass]="{'text-center':!fullwidthmode}">
+  <div [ngClass]="{flex:fullwidthmode}">
+    <img class="mb-1 mx-auto h-[120px]  "
+[ngClass]="{' h-300px':!fullwidthmode,'h-[250px]' :fullwidthmode}"
+   [src]="proudct?.image"
+    />
+    <div class=" w-full"
+    [ngClass]="{'px-8 flex flex-col justify-between':fullwidthmode}">
+    <h5>{{proudct?.category}}</h5>
+    <p class="Truncate hover:whitespace-normal">{{proudct?.tittle}}</p>
+    <p *ngIf="fullwidthmode">{{proudct?.description}} </p>
+      <div class="flex justify-between">
+<span class="text-red-400">{{proudct?.price|currency}}</span>
+
+<button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ + edit
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel" (click)="ubdat3()">edit modal</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form  [formGroup]="form">
+        <div class="row">
+        <div>
+        <label for="">Title</label>
+  <input type="text"  formControlName="title"class="form-control" placeholder="title"></div>
+  <div class="col-md-4 col-sm-12">
+  <label for="">Price</label>
+  <input type="text" formControlName="price"  class="form-control" placeholder="price"></div>
+  <div class="col-md-4 col-sm-12">
+  <label for="">category</label>
+<select class="form-select"  formControlName="category"  aria-label="Default select example" >
+  <option selected>Open this select menu</option>
+  <option value="1">electronics</option>
+  <option value="2">jewelery</option>
+  <option value="3">men's clothing</option>
+  <option value="3">women'sbclothing</option>
+</select></div>
+ <div class="col-md-4 col-sm-12">
+  <label for="">images</label>
+  <img src="{{base64}}" alt="">
+  <input type="file" class="form-control" (change)="getimagepath($event)" ></div>
+  <div class="col-md-8 col-sm-12">
+  <label for="image">Description</label>
+<textarea  class="form-control" formControlName="description"  placeholder="type here .."></textarea></div>
+</div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" [disabled]="!form.valid" (click)="addproudct()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div></div>
+    </div>
+    </div>
+
+</mat-card>
+

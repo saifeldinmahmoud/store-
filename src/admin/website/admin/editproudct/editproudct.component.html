@@ -1,0 +1,28 @@
+
+<div>
+  <app-proudcts-header
+(columesoutchanges)="columesoutchanges($event)"
+(itemcountchanges)="onitemcountchange($event)"
+(sortchanges)="onsortchange($event)"
+>
+</app-proudcts-header>
+</div>
+<div>
+<mat-grid-list
+gutterSize="16"
+[cols]="cols"
+[rowHeight]="rowHeight"
+>
+<mat-grid-tile *ngFor="let proudct of proudcts">
+  <app-porudctboxadmin
+  [proudct]="proudct"
+(addtocart)="onaddtocart($event)"
+class="w-full"
+[fullwidthmode]="cols===1"
+
+>
+</app-porudctboxadmin>
+</mat-grid-tile>
+</mat-grid-list>
+
+</div>
