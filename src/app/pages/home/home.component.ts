@@ -28,30 +28,32 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 const ROWS_HEIGHT: { [id: number]: number } = { 1: 400, 3: 335, 4: 350 };
 @Component({
-    selector: 'app-home',
-    imports: [
-        MatGridListModule,
-        MatCardModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatCardModule,
-        MatIconModule,
-        MatExpansionModule,
-        MatListModule,
-        MatToolbarModule,
-        MatTableModule,
-        MatBadgeModule,
-        MatSnackBarModule,
-        ProudctsHeaderComponent,
-        FilterComponent,
-        ProudctBoxComponent,
-        CommonModule,
-        NgxPaginationModule,
-    ],
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.css',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-home',
+  standalone: true, // إضافة standalone: true هنا
+
+  imports: [
+    MatGridListModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule,
+    MatIconModule,
+    MatExpansionModule,
+    MatListModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatBadgeModule,
+    MatSnackBarModule,
+    ProudctsHeaderComponent,
+    FilterComponent,
+    ProudctBoxComponent,
+    CommonModule,
+    NgxPaginationModule,
+  ],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   [x: string]: any;
@@ -63,7 +65,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   count = '24';
   proudctsubscription: Subscription | undefined;
   collection: any;
-
 
   constructor(
     private cartservice: CartService,
@@ -110,5 +111,4 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.proudctsubscription.unsubscribe();
     }
   }
-
 }
