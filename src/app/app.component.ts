@@ -40,14 +40,7 @@ export class PaypalModule {}
   selector: 'app-root',
   standalone: true,
   imports: [
-    // FilterComponent,
-    HeaderComponent,
-    // HomeComponent,
-    // CartComponent,
-    RouterModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    NgxPaginationModule,
+ 
 
 ],
   providers: [CartService, StoreService],
