@@ -36,3 +36,4 @@ $store-theme: mat.m2-define-light-theme((
 // that you are using.
 @include mat.all-component-themes($store-theme);
 
+@include mat.elevation-classes();

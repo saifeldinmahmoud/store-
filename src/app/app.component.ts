@@ -12,8 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { HeaderComponent } from "./commpanat/header/header/header.component";
-import { HomeComponent } from "./pages/home/home.component";
+import { HeaderComponent } from './commpanat/header/header/header.component';
 import { FilterComponent } from './pages/home/filter/filter.component';
 import { CartComponent } from "./pages/cart/cart.component";
 import { RouterModule, Routes } from '@angular/router';
@@ -37,23 +36,25 @@ import { AddproudctComponent } from "../admin/website/admin/addproudct/addproudc
 })
 export class PaypalModule {}
 @Component({
-    selector: 'app-root',
-    imports: [
-        // FilterComponent,
-        HeaderComponent,
-        // HomeComponent,
-        // CartComponent,
-        RouterModule,
-        // TODO: `HttpClientModule` should not be imported into a component directly.
-        // Please refactor the code to add `provideHttpClient()` call to the provider list in the
-        // application bootstrap logic and remove the `HttpClientModule` import from this component.
-        HttpClientModule,
-        ReactiveFormsModule,
-        NgxPaginationModule,
-    ],
-    providers: [CartService, StoreService],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css'
+  selector: 'app-root',
+
+
+  imports: [
+    // FilterComponent,
+    HeaderComponent,
+    // HomeComponent,
+    // CartComponent,
+    RouterModule,
+    // TODO: `HttpClientModule` should not be imported into a component directly.
+    // Please refactor the code to add `provideHttpClient()` call to the provider list in the
+    // application bootstrap logic and remove the `HttpClientModule` import from this component.
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgxPaginationModule,
+  ],
+  providers: [CartService, StoreService],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
   title = 'store';

@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-layoutg',
-    imports: [RouterModule],
+    imports: [],
     templateUrl: './layoutg.component.html',
     styleUrl: './layoutg.component.css'
 })

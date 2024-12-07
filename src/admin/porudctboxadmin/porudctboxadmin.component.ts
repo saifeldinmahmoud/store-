@@ -28,27 +28,29 @@ import { HttpClient } from '@angular/common/http';
 import { CartService } from '../../app/sevices/cart.service';
 import { StoreService } from '../../app/sevices/store.service';
 @Component({
-    selector: 'app-porudctboxadmin',
-    imports: [
-        MatGridListModule,
-        MatCardModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatCardModule,
-        MatIconModule,
-        MatExpansionModule,
-        MatListModule,
-        MatToolbarModule,
-        MatTableModule,
-        MatBadgeModule,
-        MatSnackBarModule,
-        CommonModule,
-        CurrencyPipe,
-        ReactiveFormsModule,
-    ],
-    templateUrl: './porudctboxadmin.component.html',
-    styleUrl: './porudctboxadmin.component.css'
+  selector: 'app-porudctboxadmin',
+  standalone: true,
+
+  imports: [
+    MatGridListModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule,
+    MatIconModule,
+    MatExpansionModule,
+    MatListModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatBadgeModule,
+    MatSnackBarModule,
+    CommonModule,
+    CurrencyPipe,
+    ReactiveFormsModule,
+  ],
+  templateUrl: './porudctboxadmin.component.html',
+  styleUrl: './porudctboxadmin.component.css',
 })
 export class PorudctboxadminComponent implements OnInit {
   @Input() fullwidthmode = false;
@@ -62,8 +64,7 @@ export class PorudctboxadminComponent implements OnInit {
     private build: FormBuilder,
     private httpclint: HttpClient,
     private cartservice: CartService,
-    private storeservices: StoreService,
-
+    private storeservices: StoreService
   ) {}
   ngOnInit(): void {
     this.form = this.build.group({
@@ -91,7 +92,5 @@ export class PorudctboxadminComponent implements OnInit {
     this.storeservices.createProduct(model).subscribe((res) => {});
     alert('edit proudct sucsses');
   }
-  ubdat3() {
-
-  }
+  ubdat3() {}
 }
