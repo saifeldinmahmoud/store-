@@ -1,0 +1,70 @@
+/* تنسيق عام للحاوية */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* لجعل العناصر جنب بعضها */
+    gap: 15px;
+    /* مسافة بين العناصر */
+    padding: 20px;
+    background-color: #f8f9fa;
+    /* خلفية خفيفة */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* تأثير ظل بسيط */
+}
+
+/* تنسيق الأزرار */
+.filter-container .btn {
+    font-size: 14px;
+    /* حجم النص أصغر */
+    padding: 8px 12px;
+    /* مسافة داخلية أقل */
+    border-radius: 5px;
+    /* زوايا مستديرة بسيطة */
+    transition: all 0.3s ease;
+    /* تأثير عند التمرير */
+}
+
+.filter-container .btn:hover {
+    background-color: #007bff;
+    /* لون الخلفية عند التمرير */
+    color: #fff;
+    /* لون النص عند التمرير */
+}
+
+/* تنسيق الأعمدة */
+.filter-container .col-6.col-md-4 {
+    flex: 1 1 calc(33.33% - 15px);
+    /* عرض كل عنصر ليأخذ ثلث الشاشة مع مسافة */
+    max-width: calc(33.33% - 15px);
+    /* عرض أقصى عند تقليل المساحة */
+    box-sizing: border-box;
+    /* لضمان الحواف صحيحة */
+}
+
+/* نص لوحة التوسيع */
+.mat-expansion-panel-header .mat-panel-title {
+    font-size: 16px;
+    /* حجم النص متوسط */
+    font-weight: normal;
+    /* خط غير غامق */
+    color: #343a40;
+    /* لون النص */
+}
+
+/* تحسين الشكل داخل لوحة التوسيع */
+.mat-expansion-panel {
+    margin-bottom: 20px;
+    /* مسافة بين اللوحة والعناصر الأخرى */
+    border: 1px solid #ddd;
+    /* إطار بسيط */
+    border-radius: 8px;
+    /* زوايا مستديرة */
+}
+
+/* تحسين الأزرار عند النقر */
+.filter-container .btn:active {
+    background-color: #0056b3;
+    /* لون غامق عند الضغط */
+    color: #fff;
+}

@@ -11,25 +11,30 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FilterComponent } from "../../filter/filter.component";
+import { HomeComponent } from '../../home.component';
 @Component({
-    selector: 'app-proudcts-header',
-    imports: [
-        MatGridListModule,
-        MatCardModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatCardModule,
-        MatIconModule,
-        MatExpansionModule,
-        MatListModule,
-        MatToolbarModule,
-        MatTableModule,
-        MatBadgeModule,
-        MatSnackBarModule,
-    ],
-    templateUrl: './proudcts-header.component.html',
-    styleUrl: './proudcts-header.component.css'
+  selector: 'app-proudcts-header',
+  standalone: true,
+
+  imports: [
+    MatGridListModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule,
+    MatIconModule,
+    MatExpansionModule,
+    MatListModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatBadgeModule,
+    MatSnackBarModule,
+    
+  ],
+  templateUrl: './proudcts-header.component.html',
+  styleUrl: './proudcts-header.component.css',
 })
 export class ProudctsHeaderComponent implements OnInit {
   @Output() columesoutchanges = new EventEmitter<number>();
@@ -37,17 +42,23 @@ export class ProudctsHeaderComponent implements OnInit {
   @Output() sortchanges = new EventEmitter<string>();
   sort = 'desc';
   itemshowcount = 12;
-  constructor() {}
+  category: string | undefined;
+
+  constructor( private home:HomeComponent) {}
   ngOnInit(): void {}
   onsortupdate(newsort: string): void {
     this.sort = newsort;
-    this.sortchanges.emit(newsort)
+    this.sortchanges.emit(newsort);
   }
   onitemsupdated(count: number): void {
     this.itemshowcount = count;
-    this.itemcountchanges.emit(count)
+    this.itemcountchanges.emit(count);
   }
   onculmesupdeted(colnum: number): void {
     this.columesoutchanges.emit(colnum);
+  }
+  onshowcatogery(newcatogrey: string): void {
+    this.category = newcatogrey;
+    this.home.getproudcts()
   }
 }

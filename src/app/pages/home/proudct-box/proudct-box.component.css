@@ -1,0 +1,65 @@
+.card {
+  max-width: 300px;
+  /* تقليل عرض الكارت */
+  margin: 10px auto;
+  /* إضافة هوامش حول الكارت */
+  border-radius: 10px;
+  /* منحنيات ناعمة على الزوايا */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* تحسين الظلال */
+}
+
+.card-img-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  /* تقليل ارتفاع الصورة */
+  overflow: hidden;
+  /* إخفاء الجزء الذي يخرج عن الصورة */
+}
+
+.card-img-top {
+  object-fit: contain;
+  /* الحفاظ على نسب الصورة مع تصغير الحجم */
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  /* تحديد مكان الصورة بحيث تظل في المنتصف */
+}
+
+.card-body {
+  padding: 1rem;
+  /* تقليل الحواف الداخلية */
+}
+
+.card-title {
+  font-size: 1rem;
+  /* تقليل حجم النص */
+  font-weight: bold;
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  /* تقليل حجم النص */
+  color: #6c757d;
+}
+
+.card-text {
+  font-size: 0.85rem;
+  /* تقليل حجم النص */
+  line-height: 1.3;
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.text-danger {
+  font-size: 1.1rem;
+  /* تقليل حجم السعر */
+}

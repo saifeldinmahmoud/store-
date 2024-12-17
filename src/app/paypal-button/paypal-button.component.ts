@@ -24,7 +24,7 @@ export class PaypalButtonComponent implements AfterViewInit {
     this.loadPayPalScript().then(() => {
       (window as any).paypal
         .Buttons({
-          
+
           createOrder: (data: any, actions: any) => {
             return actions.order.create({
               purchase_units: [

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LayoutgComponent } from './layoutg.component';
+import { AddProductComponent } from './add-product.component';
 
-describe('LayoutgComponent', () => {
-  let component: LayoutgComponent;
-  let fixture: ComponentFixture<LayoutgComponent>;
+describe('AddProductComponent', () => {
+  let component: AddProductComponent;
+  let fixture: ComponentFixture<AddProductComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LayoutgComponent]
+      imports: [AddProductComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(LayoutgComponent);
+
+    fixture = TestBed.createComponent(AddProductComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

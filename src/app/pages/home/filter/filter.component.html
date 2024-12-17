@@ -1,13 +1,31 @@
-<mat-expansion-panel *ngIf="categories">
-<mat-expansion-panel-header>
-  <mat-panel-title>CATEGORIES</mat-panel-title>
-</mat-expansion-panel-header>
-<mat-selection-list
-[multiple]="false">
-<mat-list-option *ngFor="let category of categories "  [value]="category">
-  <button (click)="onshowcatogery(category)">{{category}}</button>
-</mat-list-option>
-</mat-selection-list>
-</mat-expansion-panel>
-<mat-expansion-panel >
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>FILTER</mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <!-- فلترة العناصر بحسب الاسم والسعر -->
+  <div class="filter-container">
+    <!-- فلترة الاسم -->
+
+
+    <!-- فلترة السعر -->
+   
+
+   
+
+
+    
+
+  <!-- عرض التصنيفات تحت الفلاتر -->
+  
+   
+      <div class="col-6 col-md-4" *ngFor="let category of categories">
+        <button class="btn btn-outline-primary w-100" (click)="onshowcatogery(category)">
+          {{category}}
+        </button>
+      </div>
+ 
+
+
+
 

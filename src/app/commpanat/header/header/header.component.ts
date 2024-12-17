@@ -1,46 +1,22 @@
-import { Component, Input,   } from '@angular/core';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { Pipe, PipeTransform } from '@angular/core';
-import { CommonModule, CurrencyPipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { cart, cartitem } from './modeles/cart.model';
 import { CartService } from '../../../sevices/cart.service';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+
 @Component({
-    selector: 'app-header',
-    imports: [
-        MatGridListModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatCardModule,
-        MatIconModule,
-        MatExpansionModule,
-        MatListModule,
-        MatToolbarModule,
-        MatTableModule,
-        MatBadgeModule,
-        MatSnackBarModule,
-        CurrencyPipe,
-        RouterModule,
-        CommonModule,
-    ],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.css'
+  selector: 'app-header',
+  standalone: true,
+  imports: [MatButtonModule, MatBadgeModule, CurrencyPipe, RouterModule,CommonModule],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   private _cart: cart = { items: [] };
   itemsquantity = 0;
+
   @Input()
   get cart(): cart {
     return this._cart;
@@ -51,11 +27,20 @@ export class HeaderComponent {
       .map((item) => item.quantity)
       .reduce((prev, current) => prev + current, 0);
   }
-  constructor(private cartservices: CartService) { }
+
+  constructor(private cartservices: CartService) {}
+
+  ngOnInit(): void {
+    this.cartservices.cart.subscribe((updatedCart: cart) => {
+      this.cart = updatedCart;
+    });
+  }
+
   gettotal(items: Array<cartitem>): number {
     return this.cartservices.gettoltal(items);
   }
+
   onclearcart() {
-    this.cartservices.clearcart()
+    this.cartservices.clearcart();
   }
 }

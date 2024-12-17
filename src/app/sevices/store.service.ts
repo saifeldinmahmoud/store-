@@ -27,7 +27,7 @@ export class StoreService {
   // إضافة منتج جديد
   createProduct(product: proudct): Observable<proudct> {
     return this.httpclint.post<proudct>(
-      'https://fakestoreapi.com/carts', // تأكد من أن هذا الرابط مخصص لإضافة منتج في الخادم المحلي
+      'https://fakestoreapi.com/carts',
       product
     );
   }
@@ -38,11 +38,10 @@ export class StoreService {
       `${STORE_BASE_URL}/products/categories`
     );
   }
-  getAllprice(): Observable<Array<string>> {
+
+  getname(): Observable<Array<string>> {
     return this.httpclint.get<Array<string>>(
-      `${STORE_BASE_URL}/products/price`
+      `${STORE_BASE_URL}/products/category/jewelery`
     );
   }
-
-
 }

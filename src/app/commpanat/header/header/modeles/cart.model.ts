@@ -2,8 +2,8 @@ export interface cart {
   items: Array<cartitem>;
 }
 
-export interface cartitem{
-  proudct: string;
+export interface cartitem {
+  product: string;
   name: string;
   price: number;
   quantity: number;

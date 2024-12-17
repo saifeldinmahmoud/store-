@@ -1,37 +1,49 @@
-<mat-drawer-container
-  [autosize]=" true"
-  class="min-h-full max-w-7x1 mx-auto border-x"
->
+<div class="bg-light p-4">
+  <app-filter (showcatogery)="onshowcatogery($event)"></app-filter>
+</div>
 
-  <mat-drawer mode="side" opened class="p-6">
-<app-filter (showcatogery)="onshowcatogery($event)">
+<div class="container-fluid p-0">
+  <div class="d-flex">
+    <!-- Sidebar (Filter Component) -->
 
-</app-filter>
-</mat-drawer>
-  <mat-drawer-content class="p-6">
-<app-proudcts-header
-(columesoutchanges)="columesoutchanges($event)"
-(itemcountchanges)="onitemcountchange($event)"
-(sortchanges)="onsortchange($event)"
->
-</app-proudcts-header>
-<mat-grid-list
-gutterSize="16"
-[cols]="cols"
-[rowHeight]="rowHeight"
->
-<mat-grid-tile *ngFor="let proudct of proudcts">
-  <app-proudct-box
-  [proudct]="proudct"
-(addtocart)="onaddtocart($event)"
-class="w-full"
-[fullwidthmode]="cols===1">
+    <!-- Main Content Area (Product Grid and Header) -->
+    <div class="flex-grow-1 p-4">
+      <app-proudcts-header
+        (columesoutchanges)="columesoutchanges($event)"
+        (itemcountchanges)="onitemcountchange($event)"
+        (sortchanges)="onsortchange($event)">
+      </app-proudcts-header>
 
-</app-proudct-box>
-</mat-grid-tile>
-</mat-grid-list>
+      <!-- Product Grid -->
+      <div class="product-grid">
+        <div class="product-card" *ngFor="let proudct of products?.slice((page-1)*pageSize, page*pageSize)">
+          <app-proudct-box
+            [proudct]="proudct"
+            (addtocart)="onaddtocart($event)">
+          </app-proudct-box>
+        </div>
+      </div>
 
-  </mat-drawer-content>
-</mat-drawer-container>
-
+      <!-- Pagination -->
+      <div class="pagination-container">
+        <ul class="pagination">
+          <!-- Previous Page Button -->
+          <li class="page-item" [class.disabled]="page === 1">
+            <button class="page-link" (click)="page = page - 1" [disabled]="page === 1">Previous</button>
+          </li>
+          
+          <!-- Page Number Buttons -->
+          <li class="page-item" *ngFor="let p of [].constructor(totalPages); let i = index">
+            <button class="page-link" [class.active]="page === i + 1" (click)="page = i + 1">{{ i + 1 }}</button>
+          </li>
+          
+          <!-- Next Page Button -->
+          <li class="page-item" [class.disabled]="page === totalPages">
+            <button class="page-link" (click)="page = page + 1" [disabled]="page === totalPages">Next</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 

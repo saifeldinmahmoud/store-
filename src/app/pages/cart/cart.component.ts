@@ -1,101 +1,100 @@
 import { Component, OnInit } from '@angular/core';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTableModule } from '@angular/material/table';
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import {
   cart,
   cartitem,
 } from '../../commpanat/header/header/modeles/cart.model';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { CurrencyPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { CartService } from '../../sevices/cart.service';
-import { HttpClient } from '@angular/common/http';
-import { loadStripe } from '@stripe/stripe-js';
-import { NgxPayPalModule } from 'ngx-paypal';
 
 @Component({
-    selector: 'app-cart',
-    imports: [
-        MatGridListModule,
-        MatCardModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatCardModule,
-        MatIconModule,
-        MatExpansionModule,
-        MatListModule,
-        MatToolbarModule,
-        MatTableModule,
-        MatBadgeModule,
-        MatSnackBarModule,
-        CommonModule,
-        RouterModule,
-        CurrencyPipe,
-        NgxPayPalModule,
-    ],
-    templateUrl: './cart.component.html',
-    styleUrl: './cart.component.css'
+  selector: 'app-cart',
+  standalone: true,
+  imports: [CurrencyPipe, CommonModule, RouterModule, FormsModule],
+  providers: [CurrencyPipe],
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
   cart: cart = {
     items: [
       {
-        proudct: ' https://placehold.co/120',
-        name: 'hohoz',
-        price: 7,
+        product: 'http://via.placeholder.com/120',
+        name: 'test1',
+        price: 160,
         quantity: 1,
-        id: 100,
+        id: 1,
       },
       {
-        proudct: 'https://placehold.co/120',
-        name: 'hohoz',
-        price: 7,
+        product: 'http://via.placeholder.com/120',
+        name: 'test2',
+        price: 180,
         quantity: 1,
-        id: 101,
+        id: 2,
       },
     ],
   };
   datasource: Array<cartitem> = [];
-  displaycolumnes: Array<string> = [
-    'proudct',
+  displatcoulms: Array<string> = [
+    'product',
     'name',
     'price',
     'quantity',
     'total',
     'action',
   ];
-  payPalConfig: any;
-  constructor(private cartservices: CartService, private http: HttpClient) {}
+
+  isLoading = false; // Flag to show loading spinner
+  total: number = 0; // Default value, will be updated with actual total
+
+  constructor(private carti: CartService) {}
+
   ngOnInit(): void {
-    this.cartservices.cart.subscribe((_cart: cart) => {
+    this.carti.cart.subscribe((_cart: cart) => {
       this.cart = _cart;
       this.datasource = this.cart.items;
+      this.updateTotal(); // Update total when cart is loaded or changed
     });
   }
-  gettoltal(items: Array<cartitem>): number {
-    return this.cartservices.gettoltal(items);
+
+  // Remove item from the cart
+  removeItem(item: cartitem): void {
+    this.carti.removefromcart(item);
   }
-  onclearcart(): void {
-    this.cartservices.clearcart();
+
+  // Increase the quantity of the item
+  increaseQuantity(item: cartitem): void {
+    item.quantity++;
+    this.updateTotal(); // Update the total after increasing quantity
   }
-  onremovefromcart(item: cartitem): void {
-    this.cartservices.removefromcart(item);
+
+  // Decrease the quantity of the item
+  decreaseQuantity(item: cartitem): void {
+    if (item.quantity > 1) {
+      item.quantity--;
+      this.updateTotal(); // Update the total after decreasing quantity
+    }
   }
-  onaddquantity(item: cartitem): void {
-    this.cartservices.addtocart(item);
+
+  // Calculate total price
+  updateTotal(): void {
+    this.isLoading = true;
+    this.total = this.getTotal(); // Recalculate the total immediately
+    this.isLoading = false; // Hide loading spinner
   }
-  onremovequantity(item: cartitem): void {
-    this.cartservices.removequantity(item);
+
+  // Get total price of the cart
+  getTotal(): number {
+    return this.cart.items.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  }
+
+  // Format total with currency
+  getFormattedTotal(): string {
+    const currencyPipe = new CurrencyPipe('en-US');
+    return currencyPipe.transform(this.total, 'USD')!;
   }
 }

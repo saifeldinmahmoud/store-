@@ -1,0 +1,54 @@
+.mat-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mat-header-cell,
+.mat-cell {
+  padding: 16px;
+  text-align: left;
+}
+
+.empty-cart-row td {
+  text-align: center;
+  padding: 20px;
+}
+
+.empty-cart-message {
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.shop-now-btn {
+  background-color: #007bff;
+  color: white;
+}
+/* عند الضغط على زر الزيادة (لون أخضر مع شفافية) */
+button.increase-btn {
+  background-color: rgba(40, 167, 69, 0.5);
+  /* اللون الأخضر مع الشفافية */
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+/* عند مرور الماوس على زر الزيادة */
+button.increase-btn:hover {
+  background-color: rgba(40, 167, 69, 1);
+  /* اللون الأخضر الكامل عند المرور بالماوس */
+}
+
+/* عند الضغط على زر النقصان (لون أحمر مع شفافية) */
+button.decrease-btn {
+  background-color: rgba(255, 0, 0, 0.5);
+  /* اللون الأحمر مع الشفافية */
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+/* عند مرور الماوس على زر النقصان */
+button.decrease-btn:hover {
+  background-color: rgba(255, 0, 0, 1);
+  /* اللون الأحمر الكامل عند المرور بالماوس */
+}

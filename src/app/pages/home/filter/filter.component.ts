@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,32 +22,48 @@ import { CommonModule } from '@angular/common';
 import { StoreService } from '../../../sevices/store.service';
 import { Subscription } from 'rxjs';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms'; // Add FormsModule for ngModel
+import { MatFormFieldModule } from '@angular/material/form-field'; // Add MatFormFieldModule
+import { MatInputModule } from '@angular/material/input'; // Add MatInputModule for input fields
+
 @Component({
-    selector: 'app-filter',
-    imports: [
-        MatGridListModule,
-        MatCardModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatCardModule,
-        MatIconModule,
-        MatExpansionModule,
-        MatListModule,
-        MatToolbarModule,
-        MatTableModule,
-        MatBadgeModule,
-        MatSnackBarModule,
-        CommonModule,
-        RouterModule,
-    ],
-    templateUrl: './filter.component.html',
-    styleUrl: './filter.component.css'
+  selector: 'app-filter',
+  standalone: true,
+  imports: [
+    MatGridListModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule,
+    MatIconModule,
+    MatExpansionModule,
+    MatListModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatBadgeModule,
+    MatSnackBarModule,
+    CommonModule,
+    RouterModule,
+    FormsModule, // Add FormsModule for ngModel
+    MatFormFieldModule, // Add MatFormFieldModule
+    MatInputModule, // Add MatInputModule for input fields
+  ],
+  templateUrl: './filter.component.html',
+  styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent implements OnInit, OnDestroy {
+  
   @Output() showcatogery = new EventEmitter<string>();
+  @Output() filterByPrice = new EventEmitter<{ min: number; max: number }>();
+  @Output() filterByName = new EventEmitter<string>();
+
   categoriessubscribtion: Subscription | undefined;
   categories: Array<string> | undefined;
+
+  minPrice: number | null = null;
+  maxPrice: number | null = null;
+  searchName: string = '';
 
   constructor(private storeservices: StoreService) {}
 
@@ -51,10 +73,25 @@ export class FilterComponent implements OnInit, OnDestroy {
       .subscribe((response) => {
         this.categories = response;
       });
+    
   }
+
   onshowcatogery(category: string): void {
     this.showcatogery.emit(category);
   }
+
+  onFilterByPrice(): void {
+    if (this.minPrice !== null && this.maxPrice !== null) {
+      this.filterByPrice.emit({ min: this.minPrice, max: this.maxPrice });
+    }
+  }
+
+  onFilterByName(): void {
+    if (this.searchName.trim()) {
+      this.filterByName.emit(this.searchName.trim());
+    }
+  }
+
   ngOnDestroy(): void {
     if (this.categoriessubscribtion) {
       this.categoriessubscribtion.unsubscribe();
