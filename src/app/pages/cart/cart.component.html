@@ -27,13 +27,13 @@
         <td>{{ item.price | currency:'USD' }}</td>
         <td>
           <div class="d-flex align-items-center">
-            <!-- زر الزيادة مع اللون الأخضر -->
+            
                 <button class="btn btn-sm decrease-btn" (click)="decreaseQuantity(item)">
               <i class="fas fa-minus"></i>
             </button>
 
             <span class="mx-2">{{ item.quantity }}</span>
-            <!-- زر النقصان مع اللون الأحمر -->
+     
  <button class="btn btn-sm increase-btn" (click)="increaseQuantity(item)">
               <i class="fas fa-plus"></i>
             </button>
