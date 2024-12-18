@@ -7,7 +7,6 @@ import { CartComponent } from './pages/cart/cart.component';  // تأكد من �
 import { PaypalButtonComponent } from './paypal-button/paypal-button.component';
 import { LoginComponent } from './login/login.component';
 import { loginGuard } from './login/login.guard';
-import { AddProductComponent } from '../admin/add-product/add-product.component';
 
 
 
@@ -16,7 +15,6 @@ export const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'pay', component: PaypalButtonComponent },
   { path: 'log', component: LoginComponent },
-  { path: 'add', component: AddProductComponent } , // صفحة إضافة المنتج
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
